@@ -1,0 +1,327 @@
+:root{
+    --background-color-gradient: linear-gradient(to bottom, #0f3500, #0b2700);
+    --headertext: linear-gradient(to bottom, rgb(255, 255, 119), gold);
+    --slogan-text: rgb(255, 221, 28);
+    --felt-light: #2a6b2a;
+  --felt-dark: #0f330f;
+  --wood: #4a2511;
+  --wood-dark: #2b1408;
+  --die-color: #fdf6e3;   /* ivoor in plaats van fel geel */
+  --die-size: 4.5rem;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background: var(--background-color-gradient);
+}
+
+
+.welcome-screen{
+    font-size: 1rem;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.welcome-screen header{
+   display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    
+}
+
+.welcome-screen header h1{
+    font-size: 4.5rem;
+    background: var(--headertext);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+#circle{
+    font-size: 1rem;
+}
+
+.welcome-screen header h2{
+    font-size: 1.5rem;
+    background: var(--slogan-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.options{
+    display: flex;
+    height: 80%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.options button{
+    padding: 1rem;
+    height: auto;
+
+}
+
+.game-option{
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    align-items: center;
+    padding: 2rem 1rem;
+    border: solid rgb(255, 221, 29) 0.2rem;
+    border-radius: 15%;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.game-option img{
+    height: 12rem;
+    width: 12rem;
+}
+
+.game-option label{
+    font-size: 2rem;
+    padding: 1.5rem;
+    background: var(--headertext);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+.game-option p{
+    padding: 1rem;
+    background: var(--headertext);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    width: 20rem;
+    text-align: center;
+}
+
+.game-option button{
+    font-weight: bold;
+    background: var(--headertext);
+    border-radius: 15%;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+}
+
+.screen-showing{
+    display: block;
+}
+
+.screen-gone{
+    display: none;
+}
+
+/*Scoreboard*/
+
+.gameplay{
+    font-size: 1rem;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    
+    display: flex;
+}
+
+
+
+.gameplay aside{
+    width: 25vw;
+}
+
+/*Scoreboard*/
+
+.scoring-options{
+    height: 73.5vh;
+    background-color: white;
+    color: black;
+    border-radius: 1%;
+    
+}
+
+.scoring-options h1{
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 0.1rem solid grey;
+}
+
+.upper-section, .lower-section, .scoring-options, .upper-section div, .lower-section div, .totals, .totals div{
+    border: 0.1rem solid black;
+}
+
+.upper-section, .lower-section, .totals{
+    padding: 0.5rem;
+}
+
+.upper-section div, .lower-section div{
+    padding: 0.25rem;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto 10rem;
+    text-align: center;
+}
+
+.upper-section div span, .lower-section div span, .totals div{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto 5rem;
+    text-align: left;
+}
+
+.totals .grand-section-total span p{
+    font-size: 2rem;
+}
+
+.upper-section div span p, .lower-section div span p, .totals div span p{
+    font-size: 1.5rem;
+}
+
+.bonus span p:first-child {
+    grid-column: 1;
+    justify-self: start;
+}
+
+.bonus #info {
+    grid-column: 2;  
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.points-select{
+    border: 0.1rem solid black;
+    text-align: center;
+    padding: 0.2rem;
+    
+}
+
+#bonus, #higher-section-total-points, #lower-section-total-points {
+    text-align: center;
+    padding: 0.2rem;
+}
+
+#grand-section-total-points {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+/*Dice*/
+.dice-gameplay{
+    width: 75vw;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    
+}
+ .dice-gameplay ul{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    align-self: center;
+    background-color: rgba(7, 73, 7, 0.8);
+ }
+
+
+/* De doos: groen vilt met een houten rand */
+.border-cup, .border-cup-locked {
+  background: radial-gradient(ellipse at center, var(--felt-light) 0%, var(--felt-dark) 100%);
+  border: 14px solid var(--wood);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow:
+    inset 0 0 40px rgba(0, 0, 0, 0.6),  /* schaduw aan de binnenkant */
+    0 0 0 3px var(--wood-dark),          /* donkere buitenrand */
+    0 10px 25px rgba(0, 0, 0, 0.5);      /* schaduw onder de doos */
+}
+
+/* De dobbelstenen netjes naast elkaar */
+.border-cup ul, .border-cup-locked ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Elke dobbelsteen */
+.border-cup p, .border-cup-locked p:first-child {
+  margin: 0;
+  font-size: var(--die-size);
+  line-height: 1;
+  color: var(--die-color);
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);  /* maakt ze "los" van het vilt */
+}
+
+
+
+.in-game-btns{
+    margin: 0;
+    display: flex;
+    padding: 2rem;
+    justify-content: space-evenly;
+    
+
+}
+#roll-btn, #new{
+    font-weight: bold;
+    background: var(--headertext);
+    border-radius: 5%;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+}
+.in-game-btns img{
+    height: 5rem;
+    width: 5rem;
+}
+
+.info-gameplay span {
+    font-size: 2.5rem;
+    padding: 1rem;
+    background: var(--headertext);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: flex;
+    justify-content: center;
+}
+
+.info-gameplay span p{
+    padding: 0.5rem;
+    
+}
+
+.locked-status{
+    font-size: 1rem;
+    padding-top: 1rem;
+}
+
+#warning{
+    text-align: center;
+    color: red;
+    font-weight: bolder;
+    font-size: 2rem;
+}
+
+#newgamebtn{
+    display: none;
+    justify-content: center;
+}

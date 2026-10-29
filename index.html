@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yahtzee - Local/Online</title>
+    <link rel="stylesheet" href="media/css/reset.css">
+    <link rel="stylesheet" href="media/css/index.css">
+</head>
+<body>
+    <main>
+        <section class="welcome-screen screen-showing">
+                <header>
+                    <h1>Yahtzee</h1>
+                    <h2><span>Roll</span> <span id="circle">●</span> <span>the</span> <span id="circle">●</span> <span>Dice</span></h2>
+                </header>
+
+            <div class="options">
+                <div class="game-option">
+                    <img alt="solo-picture" src="media/images/avatar.png">
+                    <label>SOLO</label>
+                    <p>Get to know the game or try to beat your highscore!</p>
+                    <button id="Solo" onclick="screenSwitch()">Play Solo</button>
+                </div>
+                <div class="game-option">
+                    <img alt="solo-picture" src="media/images/cpu.png">
+                    <label>CPU</label>
+                    <p>Play versus a computer!</p>
+                <button id="CPU" onclick="screenSwitch()">VS CPU</button>
+                </div>
+                <div class="game-option">
+                    <img alt="solo-picture" src="media/images/users.png">
+                    <label>LOCAL</label>
+                    <p>Create a room and play against a friend.</p>
+                <button id="Local" onclick="screenSwitch()">Local</button>
+                </div>
+                <div class="game-option">
+                    <img alt="solo-picture" src="media/images/globe.png">
+                    <label>ONLINE</label>
+                    <p>Play against random people around the world and defeat them!</p>
+                <button id="Online" onclick="screenSwitch()">Online</button>
+                </div>
+            </div>
+        </section>
+        <section class="waiting-lobby screen-gone">
+
+        </section>
+        <section class="gameplay screen-gone">
+            <div class="dice-gameplay">
+                <div class="border-cup">
+                    <ul class="dice-tray">
+                    <li>
+                        <p class="active-dice" data-index="0">⚀</p>
+                    </li>
+                    <li>
+                        <p class="active-dice" data-index="1">⚁</p>
+                    </li>
+                    <li>
+                        <p class="active-dice" data-index="2">⚂</p>
+                    </li>
+                    <li>
+                        <p class="active-dice" data-index="3">⚃</p>
+                    </li>
+                    <li>
+                        <p class="active-dice" data-index="4">⚄</p>
+                    </li>
+                </ul>
+                </div>
+                <div class="border-cup-locked">
+                    <ul>
+                    <li>
+                        <p id="dice-roll-1-locked">0</p>
+                    </li>
+                    <li>
+                        <p id="dice-roll-2-locked">0</p>
+                    </li>
+                    <li>
+                        <p id="dice-roll-3-locked">0</p>
+                    </li>
+                    <li>
+                        <p id="dice-roll-4-locked">0</p>
+                    </li>
+                    <li>
+                        <p id="dice-roll-5-locked">0</p>
+                    </li>
+                </ul>
+                </div>
+                <div class="info-gameplay">
+                    <span><p>Rolls left:</p><p id="rolls-left"></p></span>
+                </div>
+                <div id="newgamebtn">
+                    <button id="new">new game</button>
+                </div>
+            </div>
+            <aside class="scoring-options">
+                <h1>Yahtzee</h1>
+                <div class="upper-section">
+                    <div class="aces">
+                        <span><p>Aces</p></span>
+                        <p class="points-select" data-index="1"></p>
+                    </div>
+                    <div class="twos">
+                        <span><p>Twos</p></span>
+                        <p class="points-select" data-index="2"></p>
+                    </div>
+                    <div class="threes">
+                        <span><p>Threes</p></span>
+                        <p class="points-select" data-index="3"></p>
+                    </div>
+                    <div class="fours">
+                        <span><p>Fours</p></span>
+                        <p class="points-select" data-index="4"></p>
+                    </div>
+                    <div class="fives">
+                        <span><p>Fives</p></span>
+                        <p class="points-select" data-index="5"></p>
+                    </div>
+                    <div class="sixes">
+                        <span><p>Sixes</p></span>
+                        <p class="points-select" data-index="6"></p>
+                    </div>
+                    <div class="bonus">
+                        <span><p>BONUS</p><p id="info">If totals is 63 or above</p></span>
+                        <p id="bonus"  data-index="extra"></p>
+                    </div>
+                </div>
+                <div class="lower-section">
+                    <div class="3K">
+                        <span><p>3 of a kind</p></span>
+                        <p class="points-select" data-index="3-row"></p>
+                    </div>
+                    <div class="4K">
+                        <span><p>4 of a kind</p></span>
+                        <p class="points-select" data-index="4-row"></p>
+                    </div>
+                    <div class="Fh">
+                        <span><p>Full house</p></span>
+                        <p class="points-select" data-index="2-3"></p>
+                    </div>
+                    <div class="Ss">
+                        <span><p>Small straight</p></span>
+                        <p class="points-select" data-index="s-straight"></p>
+                    </div>
+                    <div class="Ls">
+                        <span><p>Large straight</p></span>
+                        <p class="points-select" data-index="l-straight"></p>
+                    </div>
+                    <div class="Yz">
+                        <span><p>YAHTZEE</p></span>
+                        <p class="points-select" data-index="5-row"></p>
+                    </div>
+                    <div class="Chance">
+                        <span><p>Chance</p></span>
+                        <p class="points-select" data-index="random"></p>
+                    </div>
+                </div>
+                <div class="totals">
+                    <div class="higher-section-total">
+                        <span><p>Higher total:</p></span>
+                        <p id="higher-section-total-points"></p>
+                    </div>
+                    <div class="lower-section-total">
+                        <span><p>Lower total:</p></span>
+                        <p id="lower-section-total-points"></p>
+                    </div>
+                    <div class="grand-section-total">
+                        <span><p>Grand total:</p></span>
+                        <p id="grand-section-total-points"></p>
+                    </div>
+                </div>
+                <div class="in-game-btns">
+                    <button id="roll-btn">Roll Die</button>
+                    <img id="quit-game"  alt="quit-game" src="media/images/logout.png"/>
+                </div>
+                <p id="warning">Clicking a score is FINAL</p>
+                
+            </aside>
+        </section>
+    </main>
+</body>
+<script src="media/js/app.js"></script>
+</html>
