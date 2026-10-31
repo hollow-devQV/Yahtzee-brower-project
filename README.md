@@ -1,6 +1,6 @@
 # Aleator
 
-***Fun fact: ALEATOR is lating for "dice player"***
+***Fun fact: ALEATOR is latin for "dice player"***
 
 Fan project/game inspired by the popular Hasbro game Yahtzee, not affiliated with the company itself.
 
