@@ -120,7 +120,6 @@ function countDice(pointer){
     pointer.innerHTML = score;
   }
   let scoreFilled = document.querySelectorAll(".points-select.used").length;
-  console.log(scoreFilled);
   
   if(scoreFilled == 13){
     newGameBtn.style.display = "flex"
@@ -259,6 +258,7 @@ function screenSwitch(){
   welcomeScreen.classList.add("screen-gone");
   gameScreen.classList.add("screen-showing");
   gameScreen.classList.remove("screen-gone");
+  gameScreen.style.display = "flex";
 }
 
 function quitgame(){
@@ -266,6 +266,8 @@ function quitgame(){
   welcomeScreen.classList.remove("screen-gone");
   gameScreen.classList.remove("screen-showing");
   gameScreen.classList.add("screen-gone");
+  gameScreen.style.display = "none";
+  
 }
 
 init();

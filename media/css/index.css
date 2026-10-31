@@ -35,7 +35,7 @@ html{
     align-items: center;
     text-align: center;
     padding: 2rem;
-    
+    height: 8%;
 }
 
 .welcome-screen header h1{
@@ -129,6 +129,12 @@ html{
     display: none;
 }
 
+footer span{
+    display: flex;
+    color: white;
+    justify-content: center;
+}
+
 /*Scoreboard*/
 
 .gameplay{
@@ -138,7 +144,7 @@ html{
     margin: 0;
     padding: 0;
     
-    display: flex;
+    display: none;
 }
 
 
