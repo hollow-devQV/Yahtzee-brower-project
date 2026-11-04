@@ -6,7 +6,7 @@ import { countDice } from "./scores.js";
 
 
 function init(){
-    C.pointsSelect.forEach(pointer => {
+  C.pointsSelect.forEach(pointer => {
     pointer.addEventListener("click", () => {
       countDice(pointer);
     })
@@ -19,7 +19,10 @@ function init(){
 
   updateRolls();
   C.newGameBtn.addEventListener("click", newGame)
-  C.soloBtn.addEventListener("click", screenSwitch);
+
+  C.modes.forEach(mode => {
+    mode.addEventListener("click", () => screenSwitch(mode))
+  })
 }
 
 init();

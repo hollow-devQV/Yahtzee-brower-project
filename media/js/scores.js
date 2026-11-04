@@ -2,6 +2,7 @@ import * as C from "./const.js";
 import { reset } from "./game.js";
 
 export function countDice(pointer){
+  console.log(C.state.currentPlayer, typeof C.state.currentPlayer);
   pointer.classList.add("used");
   
   if(C.results.length == 0) return;
@@ -13,10 +14,12 @@ export function countDice(pointer){
         total += value;
       }
     })
-    pointer.innerHTML = total;
+    pointer.textContent = total;
+    C.players[C.state.currentPlayer].scores[info] = total;
   } else {
     const score = checkForScore(C.results, info);
-    pointer.innerHTML = score;
+    pointer.textContent = score;
+    C.players[C.state.currentPlayer].scores[info] = score;
   }
   let scoreFilled = document.querySelectorAll(".points-select.used").length;
   
@@ -25,7 +28,7 @@ export function countDice(pointer){
   } else{
     reset();
   }
-  
+  console.log(JSON.stringify(C.players));
 }
 
 

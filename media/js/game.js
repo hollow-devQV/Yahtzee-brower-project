@@ -45,3 +45,11 @@ export function quitGame(){
 export function updateRolls(){
   C.rollsLeft.innerHTML = C.state.rolls;
 }
+
+export function createPlayer(name, type) {
+  const scores = {};
+  [...C.UPPER, ...C.LOWER].forEach(category => {
+    scores[category] = null;   // null = nog niet gebruikt
+  });
+  return { name, type, scores };
+}

@@ -1,0 +1,98 @@
+/*Scoreboard*/
+
+.gameplay{
+    font-size: 1rem;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    
+    display: none;
+}
+
+
+
+.gameplay aside{
+    width: 25vw;
+}
+
+.scoring-options.turn-you{
+    border: 0.5rem solid blue;
+}
+
+/*Scoreboard*/
+
+.scoring-options{
+    height: 73.5vh;
+    background-color: white;
+    color: black;
+    border-radius: 1%;
+    
+}
+
+.scoring-options h1{
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 0.1rem solid grey;
+}
+
+.upper-section, .lower-section, .scoring-options, .upper-section div, .lower-section div, .totals, .totals div{
+    border: 0.1rem solid black;
+}
+
+.upper-section, .lower-section, .totals{
+    padding: 0.5rem;
+}
+
+.upper-section div, .lower-section div{
+    padding: 0.25rem;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto 10rem;
+    text-align: center;
+}
+
+.upper-section div span, .lower-section div span, .totals div{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto 5rem;
+    text-align: left;
+}
+
+.totals .grand-section-total span p{
+    font-size: 2rem;
+}
+
+.upper-section div span p, .lower-section div span p, .totals div span p{
+    font-size: 1.5rem;
+}
+
+.bonus span p:first-child {
+    grid-column: 1;
+    justify-self: start;
+}
+
+.bonus #info {
+    grid-column: 2;  
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.points-select{
+    border: 0.1rem solid black;
+    text-align: center;
+    padding: 0.2rem;
+    
+}
+
+#bonus, #higher-section-total-points, #lower-section-total-points {
+    text-align: center;
+    padding: 0.2rem;
+}
+
+#grand-section-total-points {
+    text-align: center;
+    padding: 0.5rem;
+}

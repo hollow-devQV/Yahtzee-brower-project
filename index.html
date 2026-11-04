@@ -6,6 +6,8 @@
     <title>Aleator</title>
     <link rel="stylesheet" href="media/css/reset.css">
     <link rel="stylesheet" href="media/css/index.css">
+    <link rel="stylesheet" href="media/css/scoreboard.css">
+    <link rel="stylesheet" href="media/css/diceboard.css">
 </head>
 <body>
     <main>
@@ -20,25 +22,25 @@
                     <img alt="solo-picture" src="media/images/avatar.png">
                     <label>SOLO</label>
                     <p>Get to know the game or try to beat your highscore!</p>
-                    <button id="Solo">Play Solo</button>
+                    <button class="mode"  data-index="solo">Play Solo</button>
                 </div>
                 <div class="game-option">
                     <img alt="solo-picture" src="media/images/cpu.png">
                     <label>CPU</label>
                     <p>Play versus a computer!</p>
-                <button id="CPU">VS CPU</button>
+                <button class="mode"  data-index="cpu">VS CPU</button>
                 </div>
                 <div class="game-option">
                     <img alt="solo-picture" src="media/images/users.png">
                     <label>LOCAL</label>
                     <p>Create a room and play against a friend.</p>
-                <button id="Local">Local</button>
+                <button class="mode"  data-index="local" >Local</button>
                 </div>
                 <div class="game-option">
                     <img alt="solo-picture" src="media/images/globe.png">
                     <label>ONLINE</label>
                     <p>Play against random people around the world and defeat them!</p>
-                <button id="Online">Online</button>
+                <button class="mode" data-index="online">Online</button>
                 </div>
             </div>
             <footer class="copyright">
@@ -48,9 +50,12 @@
         <section class="waiting-lobby screen-gone">
 
         </section>
-        <section class="gameplay screen-gone">
+        <section class="gameplay screen-gone ">
+            <div class="split-dice-players">
             <div class="dice-gameplay">
-                <div class="border-cup">
+                
+               
+                    <div class="border-cup">
                     <ul class="dice-tray">
                     <li>
                         <p class="active-dice" data-index="0">⚀</p>
@@ -94,9 +99,22 @@
                 <div id="newgamebtn">
                     <button id="new">new game</button>
                 </div>
+                </div>
+                
+                <div class="players">
+                    <div id="p1">
+                        <img alt="you" src="media/images/avatar.png" />
+                        <p id="player1"></p>
+                    </div>
+                    <div id="p2">
+                        <img alt="enemy" src="media/images/avatar.png" />
+                        <p id="player2"></p>
+                    </div>
+                </div>
             </div>
             <aside class="scoring-options">
                 <h1>Aleator</h1>
+                <h2 id="turn-score"></h2>
                 <div class="upper-section">
                     <div class="aces">
                         <span><p>Aces</p></span>

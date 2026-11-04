@@ -7,7 +7,8 @@ export const pointsSelect = document.querySelectorAll(".points-select");
 export const lockedAll = document.querySelectorAll(".locked-status");
 export const state = {
     isRolling: false,
-    rolls: 3
+    rolls: 3,
+    currentPlayer: 0
 }
 export const rollsLeft = document.getElementById("rolls-left");
 export const upperPointers = document.querySelectorAll(".upper-section .points-select");
@@ -19,4 +20,13 @@ export const bonusText = document.getElementById("bonus");
 export const newGameBtn = document.getElementById("newgamebtn");
 export const welcomeScreen = document.querySelector(".welcome-screen");
 export const gameScreen = document.querySelector(".gameplay");
-export const soloBtn = document.getElementById("Solo");
+
+export const modes = document.querySelectorAll(".mode")
+
+
+export const UPPER = ["1", "2", "3", "4", "5", "6"];
+export const LOWER = ["3-row", "4-row", "2-3", "s-straight", "l-straight", "5-row", "random"];
+
+
+
+export const players = [];
