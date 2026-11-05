@@ -1,3 +1,5 @@
+![alt text](media/images/favicon.png)
+
 # Aleator
 
 ***Fun fact: ALEATOR is latin for "dice player"***

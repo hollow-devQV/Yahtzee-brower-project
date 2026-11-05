@@ -20,6 +20,11 @@
     border: 0.5rem solid blue;
 }
 
+.scoring-options.turn-enemy{
+    border: 0.5rem solid red;
+}
+
+
 /*Scoreboard*/
 
 .scoring-options{
@@ -95,4 +100,24 @@
 #grand-section-total-points {
     text-align: center;
     padding: 0.5rem;
+}
+
+.in-game-btns{
+    margin: 0;
+    display: flex;
+    padding: 3rem;
+    justify-content: space-evenly;
+    
+
+}
+#roll-btn, #new{
+    font-weight: bold;
+    background: var(--headertext);
+    border-radius: 5%;
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+}
+.in-game-btns img{
+    height: 5rem;
+    width: 5rem;
 }

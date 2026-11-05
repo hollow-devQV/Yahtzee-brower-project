@@ -30,3 +30,7 @@ export const LOWER = ["3-row", "4-row", "2-3", "s-straight", "l-straight", "5-ro
 
 
 export const players = [];
+export const scoreBoard = document.querySelector(".scoring-options");
+
+export const player1 = document.getElementById("p1");
+export const player2 = document.getElementById("p2");

@@ -1,34 +1,58 @@
 import * as C from "./const.js";
-import { reset } from "./game.js";
+import { reset, isFullyFilled, declareWinner } from "./game.js";
 
 export function countDice(pointer){
-  console.log(C.state.currentPlayer, typeof C.state.currentPlayer);
-  pointer.classList.add("used");
+  
+  
+
+
+  if(pointer.classList.contains("used")){
+    alert("sorry, a value has already been given to this pointer, try a different one.")
+    return
+  }
+  
+
+  
+  
   
   if(C.results.length == 0) return;
   let total = 0;
   const info = pointer.getAttribute("data-index");
+  
+  pointer.classList.add("used");
+
+
   if(info.length == 1){
     C.results.forEach(value => {
       if (value == parseInt(info)){
         total += value;
       }
     })
-    pointer.textContent = total;
-    C.players[C.state.currentPlayer].scores[info] = total;
   } else {
-    const score = checkForScore(C.results, info);
-    pointer.textContent = score;
-    C.players[C.state.currentPlayer].scores[info] = score;
+    total = checkForScore(C.results, info);
+    
   }
+  
+  pointer.textContent = total;
+  C.players[C.state.currentPlayer].scores[info] = total;
+
+
   let scoreFilled = document.querySelectorAll(".points-select.used").length;
   
-  if(scoreFilled == 13){
+  const player1Scores = Object.values(C.players[0].scores);
+  const player2Scores = Object.values(C.players[1].scores);
+
+  console.log(player2Scores);
+
+  if(scoreFilled == 13 && C.players.length == 1){
     C.newGameBtn.style.display = "flex"
-  } else{
+  } else if(isFullyFilled(player1Scores) && isFullyFilled(player2Scores)){
+    declareWinner();
+
+  } else {
     reset();
   }
-  console.log(JSON.stringify(C.players));
+
 }
 
 
@@ -85,7 +109,7 @@ function checkForScore(results, check){
       break;
     case "random":
       C.results.forEach(number => {
-        total += number;
+        total += parseInt(number);
       })
       break;
   }
@@ -97,31 +121,34 @@ function hasRun(count, start, length) {
   return count.slice(start, start + length).every(amount => amount >= 1);
 }
 
-export function updateTotals(){
-  let totalTop = 0;
-  let totalBot = 0;
-  C.upperPointers.forEach(pointer => {
-    if(pointer.textContent == ""){
-      return;
-    }
-    totalTop += parseInt(pointer.textContent); 
-  })
+export function updateTotals(player){
+  const scores = player.scores;
 
-  C.lowerPointers.forEach(pointer => {
-    if(pointer.textContent == ""){
-      return;
-    }
-    totalBot += parseInt(pointer.textContent); 
-  })
-
-  if(totalTop >= 63){
-    C.bonusText.innerHTML = 35;
+  Object.entries(scores).forEach(([category, score]) => {
+  const pointer = document.querySelector(`.points-select[data-index="${category}"]`);
+  if (score === null) {
+    pointer.textContent = "";
+    pointer.classList.remove("used");
   } else {
-    C.bonusText.innerHTML = 0;
+    pointer.textContent = score;
+    pointer.classList.add("used");
   }
+});
+
+  const top = sumCategories(player.scores, C.UPPER);
+  const bonus = top >= 63 ? 35 : 0;
+  const bottom = sumCategories(player.scores, C.LOWER);
+  
 
 
-  C.totalHigher.innerHTML = totalTop + parseInt(C.bonusText.textContent);
-  C.totalLower.innerHTML = totalBot;
-  C.totalGrand.innerHTML = totalTop + parseInt(C.bonusText.textContent) + totalBot;
+  C.bonusText.textContent = bonus;
+  C.totalHigher.textContent = top;
+  C.totalLower.textContent = bottom;
+  C.totalGrand.textContent = top + bonus + bottom
+  
 }
+
+function sumCategories(scores, categories) {
+  return categories.reduce((sum, key) => sum + (scores[key] ?? 0), 0);
+}
+

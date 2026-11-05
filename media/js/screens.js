@@ -1,5 +1,5 @@
 import * as C from "./const.js";
-import {createPlayer} from "./game.js";
+import {createPlayer, switchPlayerVisual} from "./game.js";
 
 export function screenSwitch(mode){
   C.players.length = 0;
@@ -24,7 +24,9 @@ export function screenSwitch(mode){
       C.players.push(createPlayer("Enemy", "Human"));
       break;
   }
-  console.log(JSON.stringify(C.players));
+
+    switchPlayerVisual();
+
   C.welcomeScreen.classList.remove("screen-showing");
   C.welcomeScreen.classList.add("screen-gone");
   C.gameScreen.classList.add("screen-showing");

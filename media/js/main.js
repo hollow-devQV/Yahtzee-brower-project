@@ -5,6 +5,7 @@ import { screenSwitch } from "./screens.js";
 import { countDice } from "./scores.js";
 
 
+
 function init(){
   C.pointsSelect.forEach(pointer => {
     pointer.addEventListener("click", () => {
@@ -23,6 +24,8 @@ function init(){
   C.modes.forEach(mode => {
     mode.addEventListener("click", () => screenSwitch(mode))
   })
+
+
 }
 
 init();
