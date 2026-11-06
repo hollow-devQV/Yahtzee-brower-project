@@ -34,3 +34,5 @@ export const scoreBoard = document.querySelector(".scoring-options");
 
 export const player1 = document.getElementById("p1");
 export const player2 = document.getElementById("p2");
+
+export const playerColumns = document.querySelectorAll(".player-display");

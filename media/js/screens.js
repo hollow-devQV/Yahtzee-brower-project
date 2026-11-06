@@ -6,22 +6,31 @@ export function screenSwitch(mode){
   switch(mode.getAttribute("data-index")){
     case "solo":
       C.players.push(createPlayer("You", "Human"));
-
+      C.player1.style.display = "block";
       break;
 
     case "cpu":
       C.players.push(createPlayer("You", "Human"));
       C.players.push(createPlayer("CPU", "Computer"));
+      C.playerColumns.forEach(player => {
+        player.style.display = "block";
+      })
       break;
 
     case"local":
       C.players.push(createPlayer("You", "Human"));
       C.players.push(createPlayer("Friend", "Human"));
+       C.playerColumns.forEach(player => {
+        player.style.display = "block";
+      })
       break;
 
     case"online":
       C.players.push(createPlayer("You", "Human"));
       C.players.push(createPlayer("Enemy", "Human"));
+       C.playerColumns.forEach(player => {
+        player.style.display = "block";
+      })
       break;
   }
 
